@@ -47,26 +47,28 @@
         $Color
     )
 
-    $ConsoleColorList = [Enum]::GetValues([System.ConsoleColor])
-    $ClosestColor = [System.ConsoleColor]::Black
-    $SmallestDistance = [double]::MaxValue
+    process {
+        $ConsoleColorList = [Enum]::GetValues([System.ConsoleColor])
+        $ClosestColor = [System.ConsoleColor]::Black
+        $SmallestDistance = [double]::MaxValue
 
-    # Loop through each console color and find the closest match to the input color.
-    foreach ($ConsoleColor in $ConsoleColorList) {
-        $ConsoleColorValue = [System.Drawing.Color]::FromName($ConsoleColor.ToString())
-        $Distance = [math]::Sqrt(
-            [math]::Pow($color.R - $ConsoleColorValue.R, 2) +
-            [math]::Pow($color.G - $ConsoleColorValue.G, 2) +
-            [math]::Pow($color.B - $ConsoleColorValue.B, 2)
-        )
+        # Loop through each console color and find the closest match to the input color.
+        foreach ($ConsoleColor in $ConsoleColorList) {
+            $ConsoleColorValue = [System.Drawing.Color]::FromName($ConsoleColor.ToString())
+            $Distance = [math]::Sqrt(
+                [math]::Pow($color.R - $ConsoleColorValue.R, 2) +
+                [math]::Pow($color.G - $ConsoleColorValue.G, 2) +
+                [math]::Pow($color.B - $ConsoleColorValue.B, 2)
+            )
 
-        if ($Distance -lt $SmallestDistance) {
-            $SmallestDistance = $Distance
-            $ClosestColor = [System.ConsoleColor]$ConsoleColor
+            if ($Distance -lt $SmallestDistance) {
+                $SmallestDistance = $Distance
+                $ClosestColor = [System.ConsoleColor]$ConsoleColor
+            }
         }
-    }
 
-    $ClosestColor
+        $ClosestColor
+    }
 }
 
 function ColorArgumentCompleter {
