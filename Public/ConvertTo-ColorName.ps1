@@ -17,7 +17,10 @@
     )
 
     begin {
-
+        $ARGB = $ARGB -replace '-|\s+', ''
+        $HEX = $HEX -replace '-|\s+', ''
+        [void]$ToType
+        $NamedColor = $null
     }
 
     process {
