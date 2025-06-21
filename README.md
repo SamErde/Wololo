@@ -4,4 +4,6 @@ A PowerShell module for converting things.
 
 ![red and blue Age of Empires priests saying wololo](images/wololo.jpg)
 
-This isn't started yet, but it has to happen! 😀
+### Wololo?
+
+The name wololo and image of the priest is an homage to the game Age of Empires. See also: the "[wololo](https://knowyourmeme.com/memes/wololo)" page on Know Your Meme.
